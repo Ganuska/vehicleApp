@@ -4,9 +4,11 @@ Vite requires Node.js version 16+
 Execute the following commands:
 
 npm install
-If you want to work with the dev api:
+If you want to work with the local env:
 
 npm run dev
+
+in order to work you need to create .env file and request me for keys
 
 Project Structure
 src
