@@ -10,15 +10,15 @@ npm run dev
 
 Project Structure
 src
-├── assets # all static files
-├── common # shared endpoints used across the application and general utils used
-├── components # shared components used across the entire application
-├── layouts # global layouts.
-├── lib # libraries preconfigured for the application
-├── Pages # components used as route components
-├── routes # routes configuration
-├── Stores # MobX
-├── types # base types used across the application
+├── assets            # all static files
+├── common            # shared endpoints used across the application and general utils used
+├── components        # shared components used across the entire application
+├── layouts           # global layouts.
+├── lib               # libraries preconfigured for the application
+├── Pages             # components used as route components
+├── routes            # routes configuration
+├── Stores            # MobX
+├── types             # base types used across the application
 Styling
 Tailwindcss for styling
 
