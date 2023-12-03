@@ -10,6 +10,7 @@ npm run dev
 
 Project Structure
 src
+```sh
 ├── assets            # all static files
 ├── common            # shared endpoints used across the application and general utils used
 ├── components        # shared components used across the entire application
@@ -19,6 +20,7 @@ src
 ├── routes            # routes configuration
 ├── Stores            # MobX
 ├── types             # base types used across the application
+```
 Styling
 Tailwindcss for styling
 
