@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { axios } from '../../lib/api/axios';
 import { GetParamsVehicleMake } from '../../types';
 

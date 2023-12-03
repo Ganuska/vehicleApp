@@ -1,16 +1,17 @@
 import { observable, action, makeObservable, runInAction } from 'mobx';
+import { toast } from 'react-toastify';
 import { Vehicle, GetVehiclesResponse, GetParamsVehicleMake } from '../types';
 import {
   createNewVehicle,
   getVehicle,
   deleteVehicle
 } from '../common/api/vehicle';
-import { toast } from 'react-toastify';
 
 export class VehicleStore {
   constructor() {
     makeObservable(this);
   }
+
   @observable vehicles: GetVehiclesResponse = {
     item: [],
     page: 1,

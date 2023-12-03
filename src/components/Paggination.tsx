@@ -15,6 +15,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PagProps) => {
     <div className="mb-4 mt-auto w-[100%]">
       <ul className="wrap mt-4 flex justify-center gap-4">
         {pageNumbers.map((number) => (
+          /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+          /* eslint-disable jsx-a11y/click-events-have-key-events */
           <li
             onClick={() => onPageChange(number)}
             key={number}

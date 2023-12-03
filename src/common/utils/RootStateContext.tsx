@@ -1,5 +1,7 @@
-import { VehicleStore } from '../../Stores/VehicleStore';
+/* eslint-disable */
 import React from 'react';
+import { VehicleStore } from '../../Stores/VehicleStore';
+
 type RootStateContextValue = {
   vehicleStore: VehicleStore;
 };

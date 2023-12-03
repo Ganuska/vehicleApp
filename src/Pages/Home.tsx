@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { observer, Observer } from 'mobx-react';
 import VehicleTable from '../components/Table';
 import { useRootStore } from '../common/utils/RootStateContext';
-import { observer, Observer } from 'mobx-react';
 import CreateNew from '../components/createNew';
 import { Vehicle, GetParamsVehicleMake } from '../types';
 import Loader from '../components/Loader';
@@ -22,7 +23,7 @@ export const Home = observer(() => {
         await vehicleStore.getVehiclesData(params);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        toast.error('Error fetching data');
       }
     };
 
@@ -33,7 +34,7 @@ export const Home = observer(() => {
     try {
       await vehicleStore.addVehicle(data);
     } catch (error) {
-      console.error('Error creating:', error);
+      toast.error('Error creating vehicle');
     }
   };
   return (

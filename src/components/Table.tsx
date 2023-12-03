@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import { useRootStore } from '../common/utils/RootStateContext';
-import Pagination from './Paggination';
-import { GetParamsVehicleMake, GetVehiclesResponse } from '../types';
 import { observer } from 'mobx-react';
 import { FaRegTrashCan } from 'react-icons/fa6';
-import { HiArrowsUpDown } from 'react-icons/hi2';
-import { HiMiniArrowLongDown } from 'react-icons/hi2';
-import { HiMiniArrowLongUp } from 'react-icons/hi2';
+import {
+  HiMiniArrowLongDown,
+  HiMiniArrowLongUp,
+  HiArrowsUpDown
+} from 'react-icons/hi2';
+import { GetParamsVehicleMake, GetVehiclesResponse } from '../types';
+import Pagination from './Paggination';
+import { useRootStore } from '../common/utils/RootStateContext';
 
 interface TableData {
   data: GetVehiclesResponse;
@@ -127,6 +131,7 @@ const VehicleTable = observer(
           <tbody>
             {data.item.map((item, index) => (
               <tr
+                /* eslint-disable react/no-array-index-key */
                 key={index}
                 className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}
               >

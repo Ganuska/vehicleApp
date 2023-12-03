@@ -4,5 +4,5 @@ import { commonRoutes } from './common';
 export const AppRoutes = () => {
   const element = useRoutes([...commonRoutes]);
 
-  return <>{element}</>;
+  return <div>{element}</div>;
 };

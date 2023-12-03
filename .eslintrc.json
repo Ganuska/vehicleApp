@@ -8,6 +8,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
     "ecmaFeatures": {
       "jsx": true
     },

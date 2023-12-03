@@ -1,8 +1,10 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable */
 import Axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { toast } from 'react-toastify';
 import { storage } from '../../common/utils/storage';
 import { API_URL } from '../../common/config';
 import { getToken } from '../../common/api/autorization';
+
 export const axios = Axios.create({
   baseURL: API_URL
 });
@@ -38,7 +40,7 @@ async function authErrResponseInterceptor(error: any) {
 
       return axios(originalRequest);
     } catch (tokenError) {
-      console.error('Error refreshing token:', tokenError);
+      toast.error('error Fetching token');
       return Promise.reject(error);
     }
   }

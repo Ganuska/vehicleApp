@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
 interface NewCarFormProps {
@@ -51,9 +52,9 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-screen items-center justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
             <div className="fixed inset-0 transition-opacity">
-              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+              <div className="absolute inset-0 bg-gray-500 opacity-75" />
             </div>
-            <span className="hidden sm:inline-block sm:h-screen sm:align-middle"></span>
+            <span className="hidden sm:inline-block sm:h-screen sm:align-middle" />
             <div className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
               <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <h3
@@ -98,7 +99,6 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
                     name="description"
                     value={formData.description}
                     onChange={handleInputChange}
-                    required={true}
                     className="mt-1 block w-full rounded-md border-transparent bg-gray-100 p-2 focus:border-gray-500 focus:bg-white focus:ring-0"
                   />
                 </div>
