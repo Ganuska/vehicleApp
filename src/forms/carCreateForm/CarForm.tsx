@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { observer } from 'mobx-react';
 import { useRootStore } from '@/common/utils/RootStateContext';
 import { VehicleMake } from '@/types';
