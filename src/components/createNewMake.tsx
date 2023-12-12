@@ -2,17 +2,17 @@
 import React, { useState } from 'react';
 
 interface NewCarFormProps {
-  onCreateCar: (car: {
+  onCreateCarMake: (car: {
     name: string;
     abrv: string;
     description: string;
   }) => void;
 }
 
-const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
+const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCarMake }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: 'BMW',
+    name: '',
     abrv: '',
     description: ''
   });
@@ -27,12 +27,12 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
   };
 
   const handleCreateCar = () => {
-    onCreateCar({
+    onCreateCarMake({
       ...formData,
       abrv: formData.name.substring(0, 3).toUpperCase()
     });
     setFormData({
-      name: 'BMW',
+      name: '',
       abrv: '',
       description: ''
     });
@@ -45,7 +45,7 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
         className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
         onClick={() => setIsModalOpen(true)}
       >
-        Create New Car
+        Create New Vehicle Make
       </button>
 
       {isModalOpen && (
@@ -55,39 +55,26 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
               <div className="absolute inset-0 bg-gray-500 opacity-75" />
             </div>
             <span className="hidden sm:inline-block sm:h-screen sm:align-middle" />
-            <div className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
+            <form className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
               <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <h3
                   className="text-lg font-medium leading-6 text-gray-900"
                   id="modal-headline"
                 >
-                  Create New Car
+                  Create New Vehicle Make
                 </h3>
 
                 <div className="mt-2">
                   <label className="block text-sm font-medium text-gray-700">
                     Name:
                   </label>
-                  <select
+                  <input
+                    type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     className="mt-1 block w-full rounded-md border-transparent bg-gray-100 p-2 focus:border-gray-500 focus:bg-white focus:ring-0"
-                  >
-                    {[
-                      'BMW',
-                      'FORD',
-                      'CITROEN',
-                      'PEUGEOT',
-                      'ALFA ROMEO',
-                      'RENAULT',
-                      'MERCEDES'
-                    ].map((name) => (
-                      <option key={name} value={name}>
-                        {name}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
 
                 <div className="mt-2">
@@ -120,7 +107,7 @@ const CreateNew: React.FC<NewCarFormProps> = ({ onCreateCar }) => {
                   Cancel
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       )}

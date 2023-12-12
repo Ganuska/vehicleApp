@@ -8,16 +8,16 @@ import {
   HiMiniArrowLongUp,
   HiArrowsUpDown
 } from 'react-icons/hi2';
-import { GetParamsVehicleMake, GetVehiclesResponse } from '../types';
+import { GetParamsQuery, GetVehiclesMakeResponse } from '../types';
 import Pagination from './Paggination';
 import { useRootStore } from '../common/utils/RootStateContext';
 
 interface TableData {
-  data: GetVehiclesResponse;
-  setParams: React.Dispatch<React.SetStateAction<GetParamsVehicleMake>>;
+  data: GetVehiclesMakeResponse;
+  setParams: React.Dispatch<React.SetStateAction<GetParamsQuery>>;
 }
 
-const VehicleTable = observer(
+const VehicleMakeTable = observer(
   ({ data, setParams }: TableData): React.ReactElement | null => {
     const { vehicleStore } = useRootStore();
     const [currentPage, setCurrentPage] = useState(data.page);
@@ -46,41 +46,11 @@ const VehicleTable = observer(
         : 1;
 
     const handleDelete = (id: string) => {
-      vehicleStore.deleteOneVehicle(id);
+      vehicleStore.deleteOneVehicleMake(id);
     };
 
     return data.item.length ? (
       <div className="mx-auto my-8 ">
-        <div className="mb-4 flex items-center">
-          <label className="mr-2 text-sm text-gray-500">Filter:</label>
-          <select
-            name="name"
-            value={data.searchQuery || ''}
-            onChange={(e) =>
-              setParams((prevParams) => ({
-                ...prevParams,
-                page: 1,
-                searchQuery: e.target.value
-              }))
-            }
-            className="mt-1 block  rounded-md border-transparent bg-gray-100 p-2 focus:border-gray-500 focus:bg-white focus:ring-0"
-          >
-            {[
-              '',
-              'BMW',
-              'FORD',
-              'CITROEN',
-              'PEUGEOT',
-              'ALFA ROMEO',
-              'RENAULT',
-              'MERCEDES'
-            ].map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </div>
         <table className="min-w-full border-collapse border">
           <thead>
             <tr className="bg-gray-200">
@@ -189,10 +159,10 @@ const VehicleTable = observer(
       </div>
     ) : (
       <div className="mb-4 flex justify-center text-center">
-        No Data please create first vehicle
+        No Data please create first vehicle make
       </div>
     );
   }
 );
 
-export default VehicleTable;
+export default VehicleMakeTable;

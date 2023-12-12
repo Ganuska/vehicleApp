@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { observer, Observer } from 'mobx-react';
-import VehicleTable from '../components/VehicleTable';
+import { FaArrowLeft } from 'react-icons/fa6';
+import VehicleMakeTable from '../components/VehicleMakeTable';
 import { useRootStore } from '../common/utils/RootStateContext';
 import { GetParamsQuery } from '../types';
 import Loader from '../components/Loader';
-import CarForm from '@/forms/carCreateForm/CarForm';
-import form from '@/forms/carCreateForm/form';
+import CarMakeForm from '@/forms/carMakeCreateForm/CarMakeForm';
+import form from '@/forms/carMakeCreateForm/form';
 
-export const Home = observer(() => {
+export const VehicleMakeCreate = observer(() => {
   const navigate = useNavigate();
   const { vehicleStore } = useRootStore();
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +20,7 @@ export const Home = observer(() => {
     sort: ''
   });
   useEffect(() => {
-    vehicleStore.getVehiclesData(params);
+    vehicleStore.getVehiclesMakeData(params);
 
     setIsLoading(false);
   }, [params]);
@@ -29,17 +30,21 @@ export const Home = observer(() => {
       {() => (
         <>
           <button
-            onClick={() => navigate('vehicleMake')}
-            className="absolute right-4 flex rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={() => navigate('/')}
+            className=" flex items-center justify-center gap-2 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
           >
-            Create New Vehicle Make
+            <FaArrowLeft />
+            Vehicles
           </button>
           {!isLoading ? (
-            <VehicleTable data={vehicleStore.vehicles} setParams={setParams} />
+            <VehicleMakeTable
+              data={vehicleStore.vehicleMake}
+              setParams={setParams}
+            />
           ) : (
             <Loader loading={isLoading} />
           )}
-          <CarForm form={form} />
+          <CarMakeForm form={form} />
         </>
       )}
     </Observer>

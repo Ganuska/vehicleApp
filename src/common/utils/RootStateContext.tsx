@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { VehicleStore } from '../../Stores/VehicleStore';
+import vehicleStore, { VehicleStore } from '../../Stores/VehicleStore';
 
 type RootStateContextValue = {
   vehicleStore: VehicleStore;
@@ -9,8 +9,6 @@ type RootStateContextValue = {
 const RootStateContext = React.createContext<RootStateContextValue>(
   {} as RootStateContextValue
 );
-
-const vehicleStore = new VehicleStore();
 
 export const RootStateProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children
